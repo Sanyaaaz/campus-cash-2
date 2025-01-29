@@ -7,7 +7,8 @@ import React, { useEffect, useState } from "react";
 import BudgetItem from "../../budgets/_components/BudgetItem";
 import AddExpense from "../_components/AddExpense";
 import ExpenseListTable from "../_components/ExpenseListTable";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/Button";
+
 import { ArrowLeft, Trash } from "lucide-react";
 import {
   AlertDialog,
@@ -64,7 +65,8 @@ const ExpensesScreen: React.FC<ExpensesScreenProps> = ({ params }) => {
       .leftJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
       .where(eq(Budgets.id, params.id))
-      .groupBy(Budgets.id);
+      .groupBy(Budgets.id)
+    ;
 
     setBudgetInfo(result[0]);
     getExpensesList();
