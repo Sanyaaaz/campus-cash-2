@@ -1,24 +1,31 @@
 import React from "react";
-import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
-interface Budget {
-  id: number;
+// Define the type for each item in the budgetList
+interface BudgetItem {
   name: string;
-  amount: number;
   totalSpend: number;
-  totalItem: number;
-  createdBy: string;
+  amount: number;
 }
 
+// Define the props for the BarChartDashboard component
 interface BarChartDashboardProps {
-  budgetList: Budget[];
+  budgetList: BudgetItem[];
 }
 
 const BarChartDashboard: React.FC<BarChartDashboardProps> = ({ budgetList }) => {
   return (
     <div className="border rounded-2xl p-5">
       <h2 className="font-bold text-lg">Activity</h2>
-      <ResponsiveContainer width="80%" height={300}>
+      <ResponsiveContainer width={"80%"} height={300}>
         <BarChart
           data={budgetList}
           margin={{

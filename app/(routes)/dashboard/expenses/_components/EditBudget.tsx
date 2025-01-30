@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/ui/Button";
+import {Button} from "@/components/ui/button2";
 
 import { PenBox } from "lucide-react";
 import React, { useEffect, useState } from "react";
@@ -56,7 +56,7 @@ const EditBudget: React.FC<EditBudgetProps> = ({ budgetInfo, refreshData }) => {
         .update(Budgets)
         .set({
           name: name,
-          amount: typeof amount === "string" ? parseFloat(amount) : amount,
+          // amount: typeof amount === "string" ? parseFloat(amount) : amount,
           icon: emojiIcon,
         })
         .where(eq(Budgets.id, budgetInfo.id))
